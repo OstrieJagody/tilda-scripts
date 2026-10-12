@@ -1,35 +1,59 @@
 /**
  * Стили для страницы Каталога (pages/catalog.css)
- * Размещение товаров в 2 ряда (2 колонки) для стандартного блока #rec3509034201 (T776)
+ * Размещение товаров в 2 ряда (2 колонки) для блока #rec3509034201
  */
 
 /* ========================================================
-   Блок #rec3509034201: отображение товаров в 2 колонки (2 в ряд)
+   1. Тестовый блок "Тест пройден"
+   ======================================================== */
+#catalog-test-banner {
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ========================================================
+   2. Сетка каталога Tilda Store (#rec3509034201)
    ======================================================== */
 
-/* Контейнер карточек товаров */
+/* Контейнер каталога — включаем Flexbox */
+#rec3509034201 .t-store__grid-cont,
+#rec3509034201 .js-store-grid-cont,
 #rec3509034201 .t776__parent {
   display: flex !important;
   flex-wrap: wrap !important;
   align-items: stretch !important;
-  row-gap: 60px !important;
+  row-gap: 50px !important;
 }
 
-/* Десктоп (> 1200px): ровно 2 карточки в ряд с сохранением сетки Tilda */
-#rec3509034201 .t776__parent > .t776__col,
-#rec3509034201 .t776__parent > .t-col {
+/* Скрываем встроенные 3-колоночные разделители Tilda, которые ломали перенос строк */
+#rec3509034201 .t-store__grid-separator,
+#rec3509034201 .t-clear {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Десктоп (> 1200px): ровно 2 карточки в ряд */
+#rec3509034201 .t-store__card,
+#rec3509034201 .t-store__card-preloader,
+#rec3509034201 .t776__col,
+#rec3509034201 .t-col_4 {
   width: calc(50% - 40px) !important;
   max-width: calc(50% - 40px) !important;
   flex: 0 0 calc(50% - 40px) !important;
   margin-left: 20px !important;
   margin-right: 20px !important;
   box-sizing: content-box !important;
+  float: none !important;
 }
 
-/* Ноутбуки и мониторы (961px - 1200px): 2 карточки в ряд (отступы сетки 10px) */
+/* Ноутбуки и экраны (961px - 1200px): 2 карточки в ряд */
 @media screen and (max-width: 1200px) {
-  #rec3509034201 .t776__parent > .t776__col,
-  #rec3509034201 .t776__parent > .t-col {
+  #rec3509034201 .t-store__card,
+  #rec3509034201 .t-store__card-preloader,
+  #rec3509034201 .t776__col,
+  #rec3509034201 .t-col_4 {
     width: calc(50% - 20px) !important;
     max-width: calc(50% - 20px) !important;
     flex: 0 0 calc(50% - 20px) !important;
@@ -38,39 +62,26 @@
   }
 }
 
-/* Планшеты (641px - 960px): 2 карточки в ряд */
+/* Планшеты и мобильные (<= 960px): 2 карточки в ряд */
 @media screen and (max-width: 960px) {
-  #rec3509034201 .t776__parent > .t776__col,
-  #rec3509034201 .t776__parent > .t-col {
+  #rec3509034201 .t-store__card,
+  #rec3509034201 .t-store__card-preloader,
+  #rec3509034201 .t776__col,
+  #rec3509034201 .t-col_4 {
     width: 50% !important;
     max-width: 50% !important;
     flex: 0 0 50% !important;
     box-sizing: border-box !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     display: inline-flex !important;
   }
 }
 
-/* Смартфоны и мобильные (<= 640px): 2 карточки в ряд */
-@media screen and (max-width: 640px) {
-  #rec3509034201 .t776__parent > .t776__col,
-  #rec3509034201 .t776__parent > .t-col {
-    width: 50% !important;
-    max-width: 50% !important;
-    flex: 0 0 50% !important;
-    box-sizing: border-box !important;
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    display: inline-flex !important;
-  }
-}
-
-/* Кнопка "Показать еще" и разделители категорий растягиваются на всю ширину */
+/* Разделители категорий и кнопка "Показать еще" на всю ширину */
+#rec3509034201 .t-store__load-more-btn-wrap,
 #rec3509034201 .t776__separator,
 #rec3509034201 .t776__buttonwrapper {
   width: 100% !important;
