@@ -1,5 +1,78 @@
 /**
  * Стили для страницы Каталога (pages/catalog.css)
+ * Размещение товаров в 2 ряда (2 колонки) для стандартного блока #rec3509034201 (T776)
  */
 
-/* Сюда можно перенести ваши CSS-стили из блока T123 каталога */
+/* ========================================================
+   Блок #rec3509034201: отображение товаров в 2 колонки (2 в ряд)
+   ======================================================== */
+
+/* Контейнер карточек товаров */
+#rec3509034201 .t776__parent {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  row-gap: 60px !important;
+}
+
+/* Десктоп (> 1200px): ровно 2 карточки в ряд с сохранением сетки Tilda */
+#rec3509034201 .t776__parent > .t776__col,
+#rec3509034201 .t776__parent > .t-col {
+  width: calc(50% - 40px) !important;
+  max-width: calc(50% - 40px) !important;
+  flex: 0 0 calc(50% - 40px) !important;
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+  box-sizing: content-box !important;
+}
+
+/* Ноутбуки и мониторы (961px - 1200px): 2 карточки в ряд (отступы сетки 10px) */
+@media screen and (max-width: 1200px) {
+  #rec3509034201 .t776__parent > .t776__col,
+  #rec3509034201 .t776__parent > .t-col {
+    width: calc(50% - 20px) !important;
+    max-width: calc(50% - 20px) !important;
+    flex: 0 0 calc(50% - 20px) !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+}
+
+/* Планшеты (641px - 960px): 2 карточки в ряд */
+@media screen and (max-width: 960px) {
+  #rec3509034201 .t776__parent > .t776__col,
+  #rec3509034201 .t776__parent > .t-col {
+    width: 50% !important;
+    max-width: 50% !important;
+    flex: 0 0 50% !important;
+    box-sizing: border-box !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+  }
+}
+
+/* Смартфоны и мобильные (<= 640px): 2 карточки в ряд */
+@media screen and (max-width: 640px) {
+  #rec3509034201 .t776__parent > .t776__col,
+  #rec3509034201 .t776__parent > .t-col {
+    width: 50% !important;
+    max-width: 50% !important;
+    flex: 0 0 50% !important;
+    box-sizing: border-box !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+  }
+}
+
+/* Кнопка "Показать еще" и разделители категорий растягиваются на всю ширину */
+#rec3509034201 .t776__separator,
+#rec3509034201 .t776__buttonwrapper {
+  width: 100% !important;
+  flex: 0 0 100% !important;
+}
